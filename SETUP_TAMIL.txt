@@ -1,0 +1,39 @@
+JARVIS MOBILE V2 — HYBRID AI EDITION
+
+WHAT'S INCLUDED
+- Updated mobile-first JARVIS interface.
+- Tamil/English speech input and speech output (browser dependent).
+- Built-in time/date and website commands.
+- Secure Netlify Function backend for AI chat.
+- Provider fallback: OpenAI first, then Groq if both keys are configured.
+
+IMPORTANT
+The AI chat will NOT work until at least one provider key is added to Netlify's server-side environment variables. The app intentionally does not contain API keys. Never paste an API key into index.html, a public file, or this chat.
+AI API usage may cost money. Check current pricing and usage limits before enabling a paid provider. Only use an account with the account holder's permission. Do not bypass age or account requirements.
+
+DEPLOY THIS VERSION
+1. Extract this ZIP. Keep index.html, manifest.webmanifest, sw.js, netlify.toml, and the netlify folder together.
+2. In Netlify, open your existing JARVIS site dashboard.
+3. Open the Deploys page and find the manual deploy / drag-and-drop deploy area.
+4. Upload the extracted project folder (not just index.html). The folder must include netlify/functions/chat.mjs and netlify.toml.
+5. Wait for the deploy to finish. Open your site URL again and refresh.
+
+CONNECT AI SECURELY (OPTIONAL)
+1. In the Netlify site dashboard, open Project configuration / Site configuration > Environment variables.
+2. Add OPENAI_API_KEY with your OpenAI API key. Keep its scope available to Functions. Never put the key in the website files.
+3. Optional backup provider: add GROQ_API_KEY. The function tries OpenAI first, then Groq if OpenAI is unavailable.
+4. Optional model overrides: OPENAI_MODEL (default gpt-4o-mini), GROQ_MODEL (default llama-3.3-70b-versatile).
+5. Trigger a new deploy after changing environment variables so the function receives the new values.
+6. Test by asking a normal question in JARVIS. If no keys are set, built-in commands still work and the chat displays a setup message.
+
+PRIVACY
+- Chat messages are sent to your configured AI provider when AI is enabled.
+- This starter does not save chat history to a database.
+- Do not enter passwords, bank details, private information, or secrets.
+- API keys stay in Netlify server-side environment variables, not in browser JavaScript.
+
+DOCUMENTATION
+Netlify Functions: https://docs.netlify.com/build/functions/get-started/
+Netlify environment variables: https://docs.netlify.com/build/functions/environment-variables/
+OpenAI API quickstart: https://developers.openai.com/api/docs/quickstart
+Groq OpenAI compatibility: https://console.groq.com/docs/openai

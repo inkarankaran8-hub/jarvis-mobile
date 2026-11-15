@@ -1,0 +1,9 @@
+{
+  "name": "JARVIS Mobile Assistant V2",
+  "short_name": "JARVIS",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#070b13",
+  "theme_color": "#080d18",
+  "description": "A bilingual Tamil and English hybrid AI voice assistant."
+}
